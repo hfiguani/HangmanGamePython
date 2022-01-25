@@ -1,0 +1,236 @@
+Introduction to Programming 1
+
+Manipulating strings
+
+part1
+
+line = input('Enter line: ') 
+if 'aardvark' in line:
+  print('Aardvark!')
+else:
+  print('No aardvarks here :(')
+
+part2
+
+tlk = input('Loud: ') 
+print('Quiet: '+ tlk.lower())
+
+part3
+
+msg = input('What did she say? ')
+msg = msg.replace('###', 'o')
+msg = msg.replace('##', 'e')
+msg = msg.replace('%%', 'a')
+print('She meant to say: '+msg)
+
+part4
+
+name = input('Enter your name: ')
+if len(name)<= 3:
+        print('Hi '+name+', you have a short name.')
+elif len(name)<= 8 and len(name)>= 4 :
+        print('Hi '+name+', nice to meet you.')
+else :
+        print('Hi '+name+', you have a long name.')
+---------------------------------------------------------------------------
+Repeating things
+
+part1
+
+wrd = input('Cheer: ')
+for c in wrd:
+    print("Give me a "+c+", "+c+"!")
+print("What does it spell?")
+print(wrd.upper())
+
+part2
+
+nbr=int(input("Enter a number: "))
+for i in range(1,nbr+1):
+      print(i)
+
+part3
+
+txt=input("Line: ")
+bkw=""
+for i in range(len(txt)):
+    bkw+=txt[len(txt)-1-i]  
+print(bkw)
+
+part4
+
+txt=input("Message? ")
+bkw=txt[0]
+for i in range(0,len(txt),3):
+    if i!=0:
+       bkw+=' '+txt[i]  
+print(bkw)
+---------------------------------------------------
+Storing lists of values
+
+part1
+
+nbr=int(input("Number: "))
+print('Half number: '+str(nbr/2))
+
+part2
+
+dys = input("Which days had rain? ")
+rdys = dys.split()
+nbr=len(rdys)
+print("Number of days without rain: "+str(7-nbr))
+
+part3
+
+names = input("Students: ")
+lnames = names.split()
+lnames.sort()
+print("Class Roll")
+for nm in lnames:
+    print(nm)
+
+part4
+
+exp = input("Enter the expenses: ")
+lexp = exp.split()
+tm=0
+for itm in lexp:
+    tm+=int(itm)
+print("Total: $"+str(tm))
+
+--------------------------------------------------------------------------
+
+Looping in the unknown
+
+part1
+
+ttl=int(input("Time to launch: "))
+print("Counting down ...")
+j = 1
+while j <= ttl:
+      i=ttl+1-j
+      print(str(i)+" ...")
+      j+=1  
+print("Lift Off!")
+
+part2
+
+print("What is my favourite food?")
+ges = input('Guess? ')
+while ges != 'electricity':
+      print('Not even close.')
+      ges = input('Guess? ')
+print('You guessed it! Buzzzz')
+
+part3
+
+cf = int(input('Current floor: '))
+df = int(input('Destination floor: '))
+i=cf
+while i <= df:
+      print('Level '+str(i))
+      i+=1
+
+part4
+
+nbstp = int(input('How many steps? '))
+i=1
+us='__'
+sp='  '
+pp='|'
+mstep='  '
+lstep=''
+while i <= nbstp:
+      if nbstp==1:
+            print(us)
+            print(us+pp)
+      elif i==1 and nbstp>1:
+            print(us)
+            print(sp+pp+'_')
+      elif i==nbstp and nbstp>1:
+            j=1
+            while j <= nbstp:
+                  lstep+=us
+                  j+=1
+            print(lstep+pp)
+                 
+      else:
+            mstep+=sp
+            print(mstep+pp+'_')
+      i+=1
+
+
+--------------------------------------------------------------------------
+Looping and lists
+
+part1
+
+wrds = []
+wrd = input('Word: ')
+wrds.append(wrd)
+while wrd != '':
+      for wr in wrds: 
+            if wr==wrd:
+               ex='true'
+      if ex=='true':
+            wrd = input('Word: ')       
+      else:  
+            wrds.append(wrd)
+            wrd = input('Word: ') 
+      ex='false'  
+print('You know '+str(len(wrds))+' unique word(s)!')
+
+part2
+
+crs=input("Cars: ")
+cars = crs.split()
+rc=0
+bc=0
+for cr in cars: 
+            if cr=='red':
+               rc+=1
+for cr in cars: 
+            if cr=='blue':
+               bc+=1
+        
+print('red: '+str(rc))
+print('blue: '+str(bc))
+
+part3
+
+cd=input("code: ")
+codes=cd.split()
+ucode=[]
+for cod in codes:
+       lcod=list(cod)
+       if lcod[0].isupper():
+             cod=cod.lower()
+             ucode.append(cod)
+
+ucode.reverse()          
+print('says: '+' '.join(ucode))
+
+part4
+
+wrds=[]
+wrd=input('Enter words: ')
+wrds=wrd.split()
+fwrd=list(wrds[0])
+swrd=list(wrds[1])
+yn='true'
+i=1
+if fwrd[0]==swrd[0] and fwrd[len(fwrd)-1]==swrd[len(swrd)-1] and len(fwrd)==len(swrd):
+        while i<len(fwrd)-1:
+              if fwrd[i] in swrd[1:len(swrd)-1]:
+                    yn='true'
+              else:
+                    yn='false'
+              i+=1
+else:
+    yn='false'
+    
+if yn=='true':
+      print('Super Anagram!')
+else:
+      print('Huh?')
+  
